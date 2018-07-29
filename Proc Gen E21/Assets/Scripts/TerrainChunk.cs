@@ -66,6 +66,10 @@ public class TerrainChunk {
 
 	}
 
+	public float distanceTo(GameObject other) {
+		return Vector3.Distance (other.transform.position, meshObject.transform.position);
+	}
+
 	public void Load() {
 		ThreadedDataRequester.RequestData(() => HeightMapGenerator.GenerateHeightMap (meshSettings.numVertsPerLine, meshSettings.numVertsPerLine, heightMapSettings, sampleCentre, jMultiplier), OnHeightMapReceived);
 	}
